@@ -26,6 +26,7 @@
 		763BECF01DC1DA1300CC16BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		763BECF21DC1DA1300CC16BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		763BECF91DC1DD1B00CC16BC /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		763BECFB1DC3082E00CC16BC /* TwitterDemo.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TwitterDemo.entitlements; sourceTree = "<group>"; };
 		CACEFF7B6904F5A50F825945 /* Pods_TwitterDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_TwitterDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E34B8A482F6F642FD221D770 /* Pods-TwitterDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-TwitterDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-TwitterDemo/Pods-TwitterDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +81,7 @@
 		763BECE51DC1DA1300CC16BC /* TwitterDemo */ = {
 			isa = PBXGroup;
 			children = (
+				763BECFB1DC3082E00CC16BC /* TwitterDemo.entitlements */,
 				763BECF81DC1DCD100CC16BC /* View Controllers */,
 				763BECE61DC1DA1300CC16BC /* AppDelegate.swift */,
 				763BECEA1DC1DA1300CC16BC /* Main.storyboard */,
@@ -134,7 +136,13 @@
 				TargetAttributes = {
 					763BECE21DC1DA1300CC16BC = {
 						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = ZUXFDQMF78;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Keychain = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -346,6 +354,8 @@
 			baseConfigurationReference = E34B8A482F6F642FD221D770 /* Pods-TwitterDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TwitterDemo/TwitterDemo.entitlements;
+				DEVELOPMENT_TEAM = ZUXFDQMF78;
 				INFOPLIST_FILE = TwitterDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.auds.TwitterDemo;
@@ -359,6 +369,8 @@
 			baseConfigurationReference = 1E5D35E49E8E4D36E9558510 /* Pods-TwitterDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = TwitterDemo/TwitterDemo.entitlements;
+				DEVELOPMENT_TEAM = ZUXFDQMF78;
 				INFOPLIST_FILE = TwitterDemo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.auds.TwitterDemo;
