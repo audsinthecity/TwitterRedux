@@ -57,9 +57,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }, failure: { (task: URLSessionDataTask?, error: Error) -> Void in
                     print("error")
             })
+            
+            twitterClient?.get("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) -> Void in
+                let tweets = response as! [NSDictionary]
+                print(tweets)
+                
+                for tweet in tweets {
+                    print("\(tweet["text"]!)")
+                }
+                }, failure: { (task: URLSessionDataTask?, error: Error) -> Void in
+                    print("Tweet error")
+            })
+            
             }, failure: { (error: Error?) -> Void in
                 print("error: \(error?.localizedDescription)")
             })
+        
         
         return true
     }
