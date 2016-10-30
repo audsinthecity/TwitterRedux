@@ -20,6 +20,8 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = UITableViewAutomaticDimension
+        tableView.estimatedRowHeight = 120
         
         navigationController?.navigationBar.barTintColor = UIColor.init(red: 0.04, green: 0.6, blue: 0.98, alpha: 0.9)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
@@ -29,11 +31,12 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             for tweet in tweets {
                 print(tweet.text)
             }
+            self.tableView.reloadData()
             }, failure: { (error: Error) -> () in
                 print(error.localizedDescription)
         })
         
-        tableView.reloadData()
+        
 
     }
 
@@ -48,13 +51,20 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
-        //return tweets.count
+        print("Tweets count")
+        if tweets?.count != nil {
+            return tweets.count
+        } else { return 0
+        }
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
         cell.nameLabel.text = "Testing"
+        cell.messageLabel.text = "Sample message"
+        cell.retweetLabel.text = "Sample retweet"
+        cell.userLabel.text = "Sample user"
+        
         return cell
     }
 

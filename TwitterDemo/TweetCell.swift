@@ -17,6 +17,16 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var retweetLabel: UILabel!
     @IBOutlet weak var profileView: UIImageView!
     
+    var tweet: Tweet! {
+        didSet {
+            nameLabel.text = User.currentUser?.name as String?
+            messageLabel.text = tweet.description
+            userLabel.text = User.currentUser?.screenname as String?
+            retweetLabel.text = String(tweet.retweetCount)
+            
+        }
+    }
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
