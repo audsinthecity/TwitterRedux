@@ -16,14 +16,20 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var retweetLabel: UILabel!
     @IBOutlet weak var profileView: UIImageView!
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var favoriteCountLabel: UILabel!
+    @IBOutlet weak var retweetCountLabel: UILabel!
     
     var tweet: Tweet! {
         didSet {
-            nameLabel.text = User.currentUser?.name as String?
-            messageLabel.text = tweet.description
-            userLabel.text = User.currentUser?.screenname as String?
-            retweetLabel.text = String(tweet.retweetCount)
-            
+            nameLabel.text = tweet.username as String?
+            messageLabel.text = tweet.text as String?
+            userLabel.text = tweet.userhandle as String?
+            retweetLabel.text = "audsinthecity retweeted"
+            profileView.setImageWith(URL(string:tweet.urlString! as String)!)
+            favoriteCountLabel.text = String(tweet.favoritesCount)
+            retweetCountLabel.text = String(tweet.retweetCount)
+            timeLabel.text = "3 hr"
         }
     }
     

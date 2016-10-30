@@ -51,7 +51,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        print("Tweets count")
         if tweets?.count != nil {
             return tweets.count
         } else { return 0
@@ -60,10 +59,11 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
-        cell.nameLabel.text = "Testing"
-        cell.messageLabel.text = "Sample message"
-        cell.retweetLabel.text = "Sample retweet"
-        cell.userLabel.text = "Sample user"
+        //cell.nameLabel.text = "Testing"
+        //cell.messageLabel.text = "Sample message"
+        //cell.retweetLabel.text = "Sample retweet"
+        //cell.userLabel.text = "Sample user"
+        cell.tweet = tweets[indexPath.row]
         
         return cell
     }
