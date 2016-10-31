@@ -29,7 +29,7 @@ class TweetCell: UITableViewCell {
             profileView.setImageWith(URL(string:tweet.urlString! as String)!)
             favoriteCountLabel.text = String(tweet.favoritesCount)
             retweetCountLabel.text = String(tweet.retweetCount)
-            timeLabel.text = "3 hr"
+            timeLabel.text = tweet.displayTimeSinceCreated
         }
     }
     

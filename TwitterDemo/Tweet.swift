@@ -11,7 +11,7 @@ import UIKit
 class Tweet: NSObject {
     
     var text: String?
-    var timestamp: NSDate?
+    var timestamp: Date?
     var retweetCount: Int = 0
     var favoritesCount: Int = 0
     var urlString: String?
@@ -34,8 +34,20 @@ class Tweet: NSObject {
         if let timestampString = timestampString {
             let formatter = DateFormatter()
             formatter.dateFormat = "EEE MMM d HH:mm:ss Z y"
-            timestamp = formatter.date(from: timestampString) as NSDate?
+            timestamp = formatter.date(from: timestampString) as Date?
         }
+    }
+    
+    // Display time lapsed since Tweet creation
+    var displayTimeSinceCreated: String {
+        if let timestamp = self.timestamp {
+            let dateComponentsFormatter = DateComponentsFormatter()
+            dateComponentsFormatter.allowedUnits = [.year,.month,.weekOfYear,.day,.hour,.minute,.second]
+            dateComponentsFormatter.maximumUnitCount = 1
+            dateComponentsFormatter.unitsStyle = .abbreviated
+            return dateComponentsFormatter.string(from: timestamp, to: Date()) ?? ""
+        }
+        return ""
     }
     
     class func tweetsWithArray(dictionaries: [NSDictionary]) -> [Tweet] {

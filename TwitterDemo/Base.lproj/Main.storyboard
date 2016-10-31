@@ -160,10 +160,10 @@
                                                 <constraint firstItem="abu-L0-10G" firstAttribute="leading" secondItem="7FN-Oe-8a2" secondAttribute="trailing" constant="8" id="8L9-xf-FAU"/>
                                                 <constraint firstItem="abu-L0-10G" firstAttribute="top" secondItem="n5d-CJ-nUq" secondAttribute="top" id="BaG-kQ-2C0"/>
                                                 <constraint firstItem="gHv-rY-PXx" firstAttribute="leading" secondItem="aKe-Md-8wQ" secondAttribute="trailing" constant="13" id="Dhh-I8-qmT"/>
-                                                <constraint firstItem="NKT-aW-agk" firstAttribute="leading" secondItem="srN-tE-9E7" secondAttribute="trailing" constant="20" id="EEl-Wc-Q1f"/>
+                                                <constraint firstItem="NKT-aW-agk" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="srN-tE-9E7" secondAttribute="trailing" constant="20" id="EEl-Wc-Q1f"/>
                                                 <constraint firstItem="gHv-rY-PXx" firstAttribute="top" secondItem="3gg-WL-Yx8" secondAttribute="bottom" constant="8" id="Hvm-ST-rFj"/>
                                                 <constraint firstItem="NKT-aW-agk" firstAttribute="top" secondItem="aKe-Md-8wQ" secondAttribute="top" id="IOL-ny-DyV"/>
-                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="NKT-aW-agk" secondAttribute="trailing" constant="12" id="IXU-xb-LPl"/>
+                                                <constraint firstAttribute="trailing" secondItem="NKT-aW-agk" secondAttribute="trailing" constant="12" id="IXU-xb-LPl"/>
                                                 <constraint firstItem="n5d-CJ-nUq" firstAttribute="leading" secondItem="aKe-Md-8wQ" secondAttribute="trailing" constant="18" id="Iuz-Ix-9bl"/>
                                                 <constraint firstItem="5PK-ua-5ne" firstAttribute="leading" secondItem="DGB-aq-r4f" secondAttribute="trailing" constant="8" id="P2E-Xb-lXJ"/>
                                                 <constraint firstItem="DGB-aq-r4f" firstAttribute="leading" secondItem="abu-L0-10G" secondAttribute="trailing" constant="20" id="Stg-1j-7NJ"/>
