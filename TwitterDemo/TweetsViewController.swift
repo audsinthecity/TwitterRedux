@@ -63,10 +63,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
-        //cell.nameLabel.text = "Testing"
-        //cell.messageLabel.text = "Sample message"
-        //cell.retweetLabel.text = "Sample retweet"
-        //cell.userLabel.text = "Sample user"
+
         cell.tweet = tweets[indexPath.row]
         
         return cell
@@ -78,6 +75,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             self.tweets = tweets
             for tweet in tweets {
                 print(tweet.text)
+                print("Refreshing")
             }
             self.tableView.reloadData()
             }, failure: { (error: Error) -> () in
@@ -87,15 +85,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         refreshControl.endRefreshing()
     }
 
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -111,8 +101,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         
         let detailViewController = segue.destination as! TweetDetailViewController
         detailViewController.tweet = tweet
-        
-        print("prepare to segue")
+
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
     }
