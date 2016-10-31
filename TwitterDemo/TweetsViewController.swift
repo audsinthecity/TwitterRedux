@@ -96,5 +96,26 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         // Pass the selected object to the new view controller.
     }
     */
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let cell = sender as! UITableViewCell
+        
+        // Use a light blue color when the user selects the cell
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.init(red: 0.04, green: 0.6, blue: 0.98, alpha: 0.1)
+        cell.selectedBackgroundView = backgroundView
+        
+        let indexPath = tableView.indexPath(for: cell)
+        let tweet = tweets![indexPath!.row]
+        
+        let detailViewController = segue.destination as! TweetDetailViewController
+        detailViewController.tweet = tweet
+        
+        print("prepare to segue")
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+
 
 }

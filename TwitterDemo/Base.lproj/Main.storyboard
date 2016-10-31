@@ -193,7 +193,7 @@
                                             <outlet property="retweetLabel" destination="pDz-NW-ij8" id="enn-tE-zNi"/>
                                             <outlet property="timeLabel" destination="NKT-aW-agk" id="ZzI-Xe-ppT"/>
                                             <outlet property="userLabel" destination="srN-tE-9E7" id="UEA-Xz-eH3"/>
-                                            <segue destination="f6u-Iy-0Nt" kind="presentation" id="K3s-Pg-JTa"/>
+                                            <segue destination="Qnf-Bb-flG" kind="show" id="2C6-Co-gx5"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -341,6 +341,7 @@
                             <constraint firstItem="YVa-sh-aUp" firstAttribute="leading" secondItem="mKH-gm-mPt" secondAttribute="trailing" constant="8" id="tET-KP-tET"/>
                             <constraint firstItem="1kG-jX-jHa" firstAttribute="leading" secondItem="1z8-NP-FGh" secondAttribute="trailing" constant="22" id="tjA-6R-G6T"/>
                             <constraint firstItem="dYP-QC-qDT" firstAttribute="leading" secondItem="mCR-UY-qHa" secondAttribute="trailing" constant="12" id="tmB-1r-ztE"/>
+                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7Ib-Es-c3x" secondAttribute="trailing" constant="12" id="trI-8h-3Aj"/>
                             <constraint firstItem="O8F-yv-r0C" firstAttribute="leading" secondItem="dYP-QC-qDT" secondAttribute="trailing" constant="27" id="v7E-BM-oQw"/>
                             <constraint firstItem="4fI-sj-2RY" firstAttribute="leading" secondItem="qOQ-XU-67M" secondAttribute="trailing" constant="13" id="vdg-VM-yvU"/>
                             <constraint firstItem="mKH-gm-mPt" firstAttribute="top" secondItem="NEE-DM-rD4" secondAttribute="bottom" constant="20" id="y2Q-jR-Mfg"/>
@@ -348,21 +349,26 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Tweet" id="dYS-Fd-KmA">
-                        <barButtonItem key="leftBarButtonItem" title="&lt; Home" id="jcg-Qq-l5s">
-                            <connections>
-                                <action selector="onCancelButton:" destination="Qnf-Bb-flG" id="nm1-bj-oXg"/>
-                            </connections>
-                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Reply" id="6fg-vj-9H6">
                             <connections>
-                                <action selector="onReplyButton:" destination="Qnf-Bb-flG" id="N2R-0y-VAt"/>
+                                <action selector="onReplyButton:" destination="Qnf-Bb-flG" id="jpr-9l-Cm4"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="favoriteCountLabel" destination="O8F-yv-r0C" id="ZLQ-Cl-hC4"/>
+                        <outlet property="messageLabel" destination="7Ib-Es-c3x" id="zhB-Kp-ncr"/>
+                        <outlet property="nameLabel" destination="q6T-lT-1z9" id="Rhv-NB-eYX"/>
+                        <outlet property="profileView" destination="qOQ-XU-67M" id="uDp-yq-H6u"/>
+                        <outlet property="retweetCountLabel" destination="mCR-UY-qHa" id="6eI-wj-M92"/>
+                        <outlet property="retweetLabel" destination="YVa-sh-aUp" id="TuM-l7-uvr"/>
+                        <outlet property="timeLabel" destination="DgA-ld-dc5" id="fU4-17-srS"/>
+                        <outlet property="usernameLabel" destination="4fI-sj-2RY" id="fOZ-MK-iaK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSx-53-ATf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3249" y="123"/>
+            <point key="canvasLocation" x="2551" y="123"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pIv-Lz-KmF">
@@ -381,24 +387,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jh8-Ha-dlz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="913" y="123"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="aRp-mH-Fbu">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f6u-Iy-0Nt" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lyP-Ha-Gec">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Qnf-Bb-flG" kind="relationship" relationship="rootViewController" id="Da4-TF-S7i"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="07d-MA-bj1" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2445.5999999999999" y="122.78860569715144"/>
         </scene>
     </scenes>
     <resources>
