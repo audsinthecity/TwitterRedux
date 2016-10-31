@@ -193,6 +193,7 @@
                                             <outlet property="retweetLabel" destination="pDz-NW-ij8" id="enn-tE-zNi"/>
                                             <outlet property="timeLabel" destination="NKT-aW-agk" id="ZzI-Xe-ppT"/>
                                             <outlet property="userLabel" destination="srN-tE-9E7" id="UEA-Xz-eH3"/>
+                                            <segue destination="f6u-Iy-0Nt" kind="presentation" id="K3s-Pg-JTa"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -225,6 +226,36 @@
             </objects>
             <point key="canvasLocation" x="1712.8" y="122.78860569715144"/>
         </scene>
+        <!--Tweet Detail View Controller-->
+        <scene sceneID="3Nc-CC-JoA">
+            <objects>
+                <viewController id="Qnf-Bb-flG" customClass="TweetDetailViewController" customModule="TwitterDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="NEE-DM-rD4"/>
+                        <viewControllerLayoutGuide type="bottom" id="Grn-Rm-GTl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vqi-aG-PdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="dYS-Fd-KmA">
+                        <barButtonItem key="leftBarButtonItem" title="&lt; Home" id="jcg-Qq-l5s">
+                            <connections>
+                                <action selector="onCancelButton:" destination="Qnf-Bb-flG" id="nm1-bj-oXg"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Reply" id="6fg-vj-9H6">
+                            <connections>
+                                <action selector="onReplyButton:" destination="Qnf-Bb-flG" id="N2R-0y-VAt"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wSx-53-ATf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3249" y="123"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="pIv-Lz-KmF">
             <objects>
@@ -242,6 +273,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jh8-Ha-dlz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="913" y="123"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aRp-mH-Fbu">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="f6u-Iy-0Nt" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lyP-Ha-Gec">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Qnf-Bb-flG" kind="relationship" relationship="rootViewController" id="Da4-TF-S7i"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="07d-MA-bj1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2445.5999999999999" y="122.78860569715144"/>
         </scene>
     </scenes>
     <resources>
