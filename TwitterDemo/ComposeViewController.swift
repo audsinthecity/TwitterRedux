@@ -16,10 +16,13 @@ class ComposeViewController: UIViewController {
     @IBOutlet weak var profileView: UIImageView!
     //@IBOutlet weak var composeTextField: UITextField!
     
+    @IBOutlet weak var composeTextView: UITextView!
+    
     var user: User!
     
     override func viewDidAppear(_ animated: Bool) {
         //composeTextField.becomeFirstResponder()
+        composeTextView.becomeFirstResponder()
     }
     
     override func viewDidLoad() {

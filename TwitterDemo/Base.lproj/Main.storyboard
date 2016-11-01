@@ -257,25 +257,26 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" selected="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Compose Tweet ..." textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="OjY-r1-xbh">
-                                <frame key="frameInset" minX="8" minY="184" width="341" height="30"/>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" keyboardDismissMode="onDrag" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="thw-TH-Zst">
+                                <frame key="frameInset" minX="20" minY="183" width="339" height="134"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="340" id="XEw-5t-MwY"/>
+                                    <constraint firstAttribute="height" constant="150" id="lAW-Sp-ZcG"/>
                                 </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="twitter" keyboardAppearance="alert"/>
-                            </textField>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="twitter" keyboardAppearance="alert"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="thw-TH-Zst" firstAttribute="leading" secondItem="5Cv-gC-gcx" secondAttribute="leading" constant="4" id="2DO-Bp-4k6"/>
+                            <constraint firstAttribute="trailing" secondItem="thw-TH-Zst" secondAttribute="trailing" constant="15" id="3H5-pT-84C"/>
                             <constraint firstItem="30i-Yz-Qk5" firstAttribute="leading" secondItem="5Cv-gC-gcx" secondAttribute="leadingMargin" constant="4" id="6pv-PP-auF"/>
+                            <constraint firstItem="thw-TH-Zst" firstAttribute="top" secondItem="30i-Yz-Qk5" secondAttribute="bottom" constant="20" id="7Pt-ah-9as"/>
                             <constraint firstItem="eAs-wb-Tly" firstAttribute="leading" secondItem="30i-Yz-Qk5" secondAttribute="trailing" constant="25" id="D3w-ov-LQ4"/>
-                            <constraint firstItem="OjY-r1-xbh" firstAttribute="top" secondItem="30i-Yz-Qk5" secondAttribute="bottom" constant="20" id="I6i-hq-TZh"/>
                             <constraint firstItem="eAs-wb-Tly" firstAttribute="top" secondItem="IVV-31-uTn" secondAttribute="bottom" constant="3" id="Kp9-8o-aok"/>
-                            <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="OjY-r1-xbh" secondAttribute="trailing" constant="15" id="Sjz-wM-FrT"/>
-                            <constraint firstItem="UqI-Yt-c53" firstAttribute="top" relation="greaterThanOrEqual" secondItem="OjY-r1-xbh" secondAttribute="bottom" constant="15" id="qYD-Nh-UBx"/>
-                            <constraint firstItem="OjY-r1-xbh" firstAttribute="leading" secondItem="5Cv-gC-gcx" secondAttribute="leading" constant="8" id="qfp-Nx-Qjs"/>
+                            <constraint firstItem="UqI-Yt-c53" firstAttribute="top" relation="greaterThanOrEqual" secondItem="thw-TH-Zst" secondAttribute="bottom" constant="100" id="m2g-JP-5Do"/>
                             <constraint firstItem="IVV-31-uTn" firstAttribute="leading" secondItem="30i-Yz-Qk5" secondAttribute="trailing" constant="25" id="sZG-fA-RzV"/>
                             <constraint firstItem="IVV-31-uTn" firstAttribute="top" secondItem="30i-Yz-Qk5" secondAttribute="top" id="xVd-Eb-kHk"/>
                             <constraint firstItem="30i-Yz-Qk5" firstAttribute="top" secondItem="rcw-CG-Rrp" secondAttribute="bottom" constant="25" id="z1P-oO-XgE"/>
@@ -285,7 +286,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Tweet" id="2Td-44-TDj"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="composeTextField" destination="OjY-r1-xbh" id="qFr-hk-NT8"/>
+                        <outlet property="composeTextView" destination="thw-TH-Zst" id="p8f-bl-am8"/>
                         <outlet property="nameLabel" destination="IVV-31-uTn" id="s2R-eU-dGO"/>
                         <outlet property="profileView" destination="30i-Yz-Qk5" id="7MM-mU-4f9"/>
                         <outlet property="usernameLabel" destination="eAs-wb-Tly" id="vmu-Gu-TfT"/>
