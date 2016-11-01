@@ -120,14 +120,4 @@ class TwitterClient: BDBOAuth1SessionManager {
 
 }
 
-/*
- client?.homeTimeline(success: { (tweets: [Tweet]) -> () in
- for tweet in tweets {
- print(tweet.text)
- }
- }, failure: { (error: Error) -> () in
- print(error.localizedDescription)
- })
- 
- client?.currentAccount()
- */
+

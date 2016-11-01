@@ -8,20 +8,20 @@
 
 import UIKit
 
-class ComposeViewController: UIViewController {
+class ComposeViewController: UIViewController, UITextViewDelegate {
     
     
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileView: UIImageView!
-    //@IBOutlet weak var composeTextField: UITextField!
     
     @IBOutlet weak var composeTextView: UITextView!
+    @IBOutlet weak var charsLeftLabel: UILabel!
     
     var user: User!
+    var charCount: Int = 140
     
     override func viewDidAppear(_ animated: Bool) {
-        //composeTextField.becomeFirstResponder()
         composeTextView.becomeFirstResponder()
     }
     
@@ -31,9 +31,12 @@ class ComposeViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = UIColor.init(red: 0.04, green: 0.6, blue: 0.98, alpha: 0.9)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
+        composeTextView.delegate = self
+        
         usernameLabel.text = user.screenname as String?
         nameLabel.text = user.name as String?
         profileView.setImageWith(user.profileUrl as! URL)
+        charsLeftLabel.text = String(charCount)
         
         /*
         let fixedWidth = composeTextField.frame.size.width
@@ -78,11 +81,23 @@ class ComposeViewController: UIViewController {
                 print("Error on new Tweet post")
         })
         
-        
-        //presentViewController(TweetsViewController, animated: true, completion: nil)
         performSegue(withIdentifier: "backHome", sender: nil)
         
 
+    }
+    
+    func updateCharacterCount() {
+        self.charsLeftLabel.text = "\((140) - self.composeTextView.text.characters.count)"
+    }
+    
+    func textViewDidChange(_ textView: UITextView) {
+        self.updateCharacterCount()
+    }
+    
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        self.updateCharacterCount()
+        return composeTextView.text.characters.count +  (text.characters.count - range.length) <= 140
     }
     
     

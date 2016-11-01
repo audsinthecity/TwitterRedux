@@ -266,6 +266,12 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="twitter" keyboardAppearance="alert"/>
                             </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="140" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BxC-WE-Io2">
+                                <frame key="frameInset" minX="306" minY="89" width="29" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -276,7 +282,9 @@
                             <constraint firstItem="eAs-wb-Tly" firstAttribute="leading" secondItem="30i-Yz-Qk5" secondAttribute="trailing" constant="25" id="D3w-ov-LQ4"/>
                             <constraint firstItem="eAs-wb-Tly" firstAttribute="top" secondItem="IVV-31-uTn" secondAttribute="bottom" constant="3" id="Kp9-8o-aok"/>
                             <constraint firstItem="UqI-Yt-c53" firstAttribute="top" relation="greaterThanOrEqual" secondItem="thw-TH-Zst" secondAttribute="bottom" constant="100" id="m2g-JP-5Do"/>
+                            <constraint firstItem="BxC-WE-Io2" firstAttribute="top" secondItem="IVV-31-uTn" secondAttribute="top" id="qyv-5z-SBk"/>
                             <constraint firstItem="IVV-31-uTn" firstAttribute="leading" secondItem="30i-Yz-Qk5" secondAttribute="trailing" constant="25" id="sZG-fA-RzV"/>
+                            <constraint firstAttribute="trailing" secondItem="BxC-WE-Io2" secondAttribute="trailing" constant="8" id="w4s-3o-prf"/>
                             <constraint firstItem="IVV-31-uTn" firstAttribute="top" secondItem="30i-Yz-Qk5" secondAttribute="top" id="xVd-Eb-kHk"/>
                             <constraint firstItem="30i-Yz-Qk5" firstAttribute="top" secondItem="rcw-CG-Rrp" secondAttribute="bottom" constant="25" id="z1P-oO-XgE"/>
                         </constraints>
@@ -290,6 +298,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="charsLeftLabel" destination="BxC-WE-Io2" id="Bgw-YI-S2x"/>
                         <outlet property="composeTextView" destination="thw-TH-Zst" id="p8f-bl-am8"/>
                         <outlet property="nameLabel" destination="IVV-31-uTn" id="s2R-eU-dGO"/>
                         <outlet property="profileView" destination="30i-Yz-Qk5" id="7MM-mU-4f9"/>
@@ -299,7 +308,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4p-O2-8bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2636" y="-163"/>
+            <point key="canvasLocation" x="2636" y="-163.26836581709148"/>
         </scene>
         <!--Tweet-->
         <scene sceneID="3Nc-CC-JoA">

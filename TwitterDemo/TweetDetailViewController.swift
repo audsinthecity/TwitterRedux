@@ -33,6 +33,7 @@ class TweetDetailViewController: UIViewController {
         navigationController?.navigationBar.barTintColor = UIColor.init(red: 0.04, green: 0.6, blue: 0.98, alpha: 0.9)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
+        
         nameLabel.text = tweet.username
         messageLabel.text = tweet.text
         usernameLabel.text = tweet.userhandle
@@ -70,6 +71,8 @@ class TweetDetailViewController: UIViewController {
         TwitterClient.sharedInstance?.retweet(tweet: tweet, success: {
             print("Retweeted!")
             sender.setImage(#imageLiteral(resourceName: "retweet-action-on"), for: UIControlState.highlighted)
+            self.tweet.retweetCount += 1
+            self.retweetCountLabel.text = String(self.tweet.retweetCount)
             }, failure: {
                 print("Retweet fail")
         })
@@ -81,6 +84,8 @@ class TweetDetailViewController: UIViewController {
         TwitterClient.sharedInstance?.favorite(tweet: tweet, success: {
             print("Favorited!")
             sender.setImage(#imageLiteral(resourceName: "like-action-on"),for: UIControlState.highlighted)
+            self.tweet.favoritesCount += 1
+            self.favoriteCountLabel.text = String(self.tweet.favoritesCount)
             }, failure: {
                 print("Favorite fail")
         })
