@@ -20,6 +20,10 @@ class TweetDetailViewController: UIViewController {
     @IBOutlet weak var retweetCountLabel: UILabel!
     @IBOutlet weak var favoriteCountLabel: UILabel!
     
+    
+    @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var retweetButton: UIButton!
+    
     var tweet: Tweet!
     
     
@@ -38,6 +42,14 @@ class TweetDetailViewController: UIViewController {
         retweetCountLabel.text = String(tweet.retweetCount)
         timeLabel.text = tweet.displayTimeSinceCreated
         
+        favoriteButton.setImage(#imageLiteral(resourceName: "like-action"), for:.normal);
+        favoriteButton.setImage(#imageLiteral(resourceName: "like-action-on"), for:.highlighted);
+        
+        retweetButton.setImage(#imageLiteral(resourceName: "retweet-action"), for:.normal);
+        retweetButton.setImage(#imageLiteral(resourceName: "retweet-action-on"), for: .highlighted)
+        
+        
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -47,9 +59,32 @@ class TweetDetailViewController: UIViewController {
     
     
     @IBAction func onReplyButton(_ sender: AnyObject) {
+        print("Replied!")
         dismiss(animated: true, completion: nil)
     }
     
+
+    
+    
+    @IBAction func onRetweet(_ sender: AnyObject) {
+        TwitterClient.sharedInstance?.retweet(tweet: tweet, success: {
+            print("Retweeted!")
+            sender.setImage(#imageLiteral(resourceName: "retweet-action-on"), for: UIControlState.highlighted)
+            }, failure: {
+                print("Retweet fail")
+        })
+
+    }
+    
+    
+    @IBAction func onLike(_ sender: AnyObject) {
+        TwitterClient.sharedInstance?.favorite(tweet: tweet, success: {
+            print("Favorited!")
+            sender.setImage(#imageLiteral(resourceName: "like-action-on"),for: UIControlState.highlighted)
+            }, failure: {
+                print("Favorite fail")
+        })
+    }
 
     /*
     // MARK: - Navigation

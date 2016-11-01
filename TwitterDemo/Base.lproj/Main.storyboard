@@ -375,37 +375,47 @@
                                     <constraint firstAttribute="height" constant="20" id="nU7-0s-hKp"/>
                                 </constraints>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="retweet-action" translatesAutoresizingMaskIntoConstraints="NO" id="1z8-NP-FGh">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qv5-wz-gsp">
+                                <frame key="frameInset" minX="93" minY="227" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="po9-21-pgC"/>
-                                    <constraint firstAttribute="width" constant="20" id="rDv-Cg-1ec"/>
+                                    <constraint firstAttribute="height" constant="20" id="9rJ-DB-BTA"/>
+                                    <constraint firstAttribute="width" constant="20" id="f65-rr-hQh"/>
                                 </constraints>
-                            </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="like-action" translatesAutoresizingMaskIntoConstraints="NO" id="1kG-jX-jHa">
+                                <state key="normal" title="Button" image="like-action"/>
+                                <connections>
+                                    <action selector="onLike:" destination="Qnf-Bb-flG" eventType="touchUpInside" id="lBB-1j-Qrh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IXo-Je-qgm">
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="20" id="45e-xu-ikJ"/>
-                                    <constraint firstAttribute="height" constant="20" id="O9w-gx-3pe"/>
+                                    <constraint firstAttribute="height" constant="20" id="FQV-r6-dH6"/>
+                                    <constraint firstAttribute="width" constant="20" id="Wsf-gw-Meq"/>
                                 </constraints>
-                            </imageView>
+                                <state key="normal" title="Button" image="retweet-action"/>
+                                <connections>
+                                    <action selector="onRetweet:" destination="Qnf-Bb-flG" eventType="touchUpInside" id="nhZ-Bt-b9G"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="DgA-ld-dc5" firstAttribute="top" secondItem="qOQ-XU-67M" secondAttribute="bottom" constant="14" id="ABl-FM-ewR"/>
+                            <constraint firstItem="IXo-Je-qgm" firstAttribute="centerY" secondItem="DPA-pr-PQw" secondAttribute="centerY" id="ApA-vZ-fmN"/>
                             <constraint firstItem="DPA-pr-PQw" firstAttribute="top" secondItem="mCR-UY-qHa" secondAttribute="bottom" constant="20" id="AxF-Oe-3OR"/>
                             <constraint firstItem="DgA-ld-dc5" firstAttribute="leading" secondItem="vqi-aG-PdC" secondAttribute="leadingMargin" constant="8" id="BGg-IT-vWi"/>
                             <constraint firstItem="O8F-yv-r0C" firstAttribute="centerY" secondItem="mCR-UY-qHa" secondAttribute="centerY" id="EhM-Tt-RkU"/>
                             <constraint firstItem="q6T-lT-1z9" firstAttribute="leading" secondItem="qOQ-XU-67M" secondAttribute="trailing" constant="13" id="Fip-kZ-jAf"/>
                             <constraint firstItem="q6T-lT-1z9" firstAttribute="top" secondItem="YVa-sh-aUp" secondAttribute="bottom" constant="12" id="G1M-2U-Ah9"/>
                             <constraint firstItem="DPA-pr-PQw" firstAttribute="leading" secondItem="vqi-aG-PdC" secondAttribute="leading" constant="9" id="GWX-Gd-SEi"/>
-                            <constraint firstItem="1z8-NP-FGh" firstAttribute="centerY" secondItem="DPA-pr-PQw" secondAttribute="centerY" id="QIp-7G-oQJ"/>
+                            <constraint firstItem="IXo-Je-qgm" firstAttribute="leading" secondItem="DPA-pr-PQw" secondAttribute="trailing" constant="22" id="ShA-CB-R8P"/>
                             <constraint firstItem="qOQ-XU-67M" firstAttribute="leading" secondItem="vqi-aG-PdC" secondAttribute="leading" constant="9" id="Tm4-Kk-NO6"/>
                             <constraint firstItem="QQy-23-1Y2" firstAttribute="centerY" secondItem="mCR-UY-qHa" secondAttribute="centerY" id="Tqk-vx-Wsf"/>
-                            <constraint firstItem="1z8-NP-FGh" firstAttribute="leading" secondItem="DPA-pr-PQw" secondAttribute="trailing" constant="22" id="V3M-bA-bMH"/>
                             <constraint firstItem="YVa-sh-aUp" firstAttribute="centerY" secondItem="mKH-gm-mPt" secondAttribute="centerY" id="W84-Je-aiM"/>
                             <constraint firstItem="7Ib-Es-c3x" firstAttribute="top" secondItem="4fI-sj-2RY" secondAttribute="bottom" constant="8" id="X6X-1e-GmV"/>
                             <constraint firstItem="dYP-QC-qDT" firstAttribute="centerY" secondItem="mCR-UY-qHa" secondAttribute="centerY" id="XW1-tc-3Gj"/>
                             <constraint firstItem="mKH-gm-mPt" firstAttribute="leading" secondItem="vqi-aG-PdC" secondAttribute="leadingMargin" constant="14" id="abU-1v-OYz"/>
-                            <constraint firstItem="1kG-jX-jHa" firstAttribute="centerY" secondItem="DPA-pr-PQw" secondAttribute="centerY" id="gJQ-AH-Gqi"/>
+                            <constraint firstItem="Qv5-wz-gsp" firstAttribute="centerY" secondItem="DPA-pr-PQw" secondAttribute="centerY" id="f1l-to-PcV"/>
+                            <constraint firstItem="Qv5-wz-gsp" firstAttribute="leading" secondItem="IXo-Je-qgm" secondAttribute="trailing" constant="22" id="hgt-fR-gag"/>
                             <constraint firstItem="4fI-sj-2RY" firstAttribute="top" secondItem="q6T-lT-1z9" secondAttribute="bottom" constant="5" id="hzp-gy-fAz"/>
                             <constraint firstItem="mCR-UY-qHa" firstAttribute="leading" secondItem="vqi-aG-PdC" secondAttribute="leadingMargin" constant="9" id="ioD-gW-66A"/>
                             <constraint firstItem="7Ib-Es-c3x" firstAttribute="leading" secondItem="qOQ-XU-67M" secondAttribute="trailing" constant="13" id="iqM-CG-MmL"/>
@@ -413,7 +423,6 @@
                             <constraint firstItem="mCR-UY-qHa" firstAttribute="top" secondItem="DgA-ld-dc5" secondAttribute="bottom" constant="14" id="jYm-aE-Jui"/>
                             <constraint firstAttribute="trailingMargin" relation="greaterThanOrEqual" secondItem="q6T-lT-1z9" secondAttribute="trailing" constant="15" id="jfe-Ng-tiT"/>
                             <constraint firstItem="YVa-sh-aUp" firstAttribute="leading" secondItem="mKH-gm-mPt" secondAttribute="trailing" constant="8" id="tET-KP-tET"/>
-                            <constraint firstItem="1kG-jX-jHa" firstAttribute="leading" secondItem="1z8-NP-FGh" secondAttribute="trailing" constant="22" id="tjA-6R-G6T"/>
                             <constraint firstItem="dYP-QC-qDT" firstAttribute="leading" secondItem="mCR-UY-qHa" secondAttribute="trailing" constant="12" id="tmB-1r-ztE"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="7Ib-Es-c3x" secondAttribute="trailing" constant="12" id="trI-8h-3Aj"/>
                             <constraint firstItem="O8F-yv-r0C" firstAttribute="leading" secondItem="dYP-QC-qDT" secondAttribute="trailing" constant="27" id="v7E-BM-oQw"/>
@@ -430,10 +439,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="favoriteButton" destination="Qv5-wz-gsp" id="VKD-aZ-omT"/>
                         <outlet property="favoriteCountLabel" destination="O8F-yv-r0C" id="ZLQ-Cl-hC4"/>
                         <outlet property="messageLabel" destination="7Ib-Es-c3x" id="zhB-Kp-ncr"/>
                         <outlet property="nameLabel" destination="q6T-lT-1z9" id="Rhv-NB-eYX"/>
                         <outlet property="profileView" destination="qOQ-XU-67M" id="uDp-yq-H6u"/>
+                        <outlet property="retweetButton" destination="IXo-Je-qgm" id="bBq-Vi-efU"/>
                         <outlet property="retweetCountLabel" destination="mCR-UY-qHa" id="6eI-wj-M92"/>
                         <outlet property="retweetLabel" destination="YVa-sh-aUp" id="TuM-l7-uvr"/>
                         <outlet property="timeLabel" destination="DgA-ld-dc5" id="fU4-17-srS"/>
