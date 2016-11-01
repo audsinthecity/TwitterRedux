@@ -209,13 +209,13 @@
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="GIs-3K-8C5">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="nHg-S9-tVK">
-                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onLogoutButton:" destination="nmj-CO-LDk" id="T8c-b8-KbJ"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New" id="aOA-7y-3df">
-                            <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <segue destination="k5h-Pc-Q97" kind="show" id="QMt-ow-qyq"/>
                             </connections>
@@ -283,6 +283,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="3v2-Zd-R0O">
                         <barButtonItem key="rightBarButtonItem" title="Tweet" id="2Td-44-TDj">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
                                 <action selector="onTweet:" destination="k5h-Pc-Q97" id="SCW-U5-s6C"/>
                             </connections>
