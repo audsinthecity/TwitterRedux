@@ -53,8 +53,53 @@ class ComposeViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    
+    @IBAction func onTweet(_ sender: AnyObject) {
+        
+        /*
+        var tweet = Tweet["text": composeTextView.text]
+        //var tweet = Tweet(dictionary: NSDictionary())
+        var dict = NSDictionary()
+        
+        tweet.init(dict) {
+            ["text" : composeTextView.text] as! NSDictionary
+        }
+ 
+        */
+        
+        /*
+        //init(dictionary: Dictionary) {
+        //var tweetDictionary: Dictionary = {
+        tweet.username = user.name as String?
+        tweet.userhandle = user.screenname as String?
+        tweet.text = composeTextView.text
+        tweet.timestamp = Date()
+        tweet.favoritesCount = 0
+        tweet.retweetCount = 0
+        tweet.urlString = String(describing: user.profileUrl)
+        tweet.user = NSDictionary()
+        //}
+        
+        
+        TwitterClient.sharedInstance?.postTweet(success: { (tweet) -> () in
+            print("Successfully posted new Tweet")
+            }, failure: { (error: Error) -> () in
+                print(error.localizedDescription)
+        })
+ 
+         */
+        
+        
+        TwitterClient.sharedInstance?.createTweet(status: composeTextView.text, reply: nil, success: { (tweet) in
+            print("Successfully posted new Tweet")
+            self.dismiss(animated: true, completion: nil)
+            }, failure: {
+                print("Error on new Tweet post")
+        })
+        
+        
 
-}
+    }
     
     
     /*
@@ -68,3 +113,4 @@ class ComposeViewController: UIViewController {
     */
 
 
+}

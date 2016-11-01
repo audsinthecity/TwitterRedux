@@ -263,7 +263,6 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="150" id="lAW-Sp-ZcG"/>
                                 </constraints>
-                                <color key="textColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences" keyboardType="twitter" keyboardAppearance="alert"/>
                             </textView>
@@ -283,7 +282,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="3v2-Zd-R0O">
-                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="2Td-44-TDj"/>
+                        <barButtonItem key="rightBarButtonItem" title="Tweet" id="2Td-44-TDj">
+                            <connections>
+                                <action selector="onTweet:" destination="k5h-Pc-Q97" id="SCW-U5-s6C"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="composeTextView" destination="thw-TH-Zst" id="p8f-bl-am8"/>

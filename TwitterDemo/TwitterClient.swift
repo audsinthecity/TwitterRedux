@@ -77,6 +77,45 @@ class TwitterClient: BDBOAuth1SessionManager {
 
     }
     
+    func postTweet(success: @escaping (Tweet) -> (), failure: @escaping (Error) -> ()) {
+        post("1.1/statuses/update.json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) -> Void in
+        print("Success")
+        }, failure: { (task: URLSessionDataTask?, error: Error) -> Void in
+            failure(error)
+        })
+    }
+    
+    func createTweet(status: String, reply: Tweet?, success: @escaping (Tweet)->(), failure: @escaping ()->()){
+        
+        self.post("1.1/statuses/update.json", parameters: ["status":status,"in_reply_to_status_id":reply?.id], progress: nil, success: { (task:URLSessionDataTask, response: Any?) in
+            let data = response as! NSDictionary
+            success(Tweet(dictionary: data))
+        }) { (task: URLSessionDataTask?, error: Error) in
+            print(error.localizedDescription)
+            failure()
+        }
+    }
+    
+    func favorite(tweet: Tweet, success: @escaping ()->(), failure: @escaping ()->()) {
+        self.post("1.1/favorites/create.json", parameters: tweet.id, progress: nil, success: { (task:URLSessionDataTask, response: Any?) in
+            success()
+            print("Favorited tweet")
+        }) { (task: URLSessionDataTask?, error: Error) in
+            print(error.localizedDescription)
+            failure()
+        }
+    }
+    
+    func retweet(tweet: Tweet, success: @escaping ()->(), failure: @escaping ()->()) {
+        self.post("1.1/statuses/retweet/\(tweet.id).json", parameters: [:], progress: nil, success: { (task:URLSessionDataTask, response: Any?) in
+            success()
+            print("Retweeted")
+        }) { (task: URLSessionDataTask?, error: Error) in
+            print(error.localizedDescription)
+            failure()
+        }
+    }
+    
     func currentAccount(success: @escaping (User) -> (), failure: @escaping (Error) -> ()) {
         get("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: URLSessionDataTask, response: Any?) -> Void in
             let userDictionary = response as! NSDictionary
