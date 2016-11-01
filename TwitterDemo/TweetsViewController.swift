@@ -108,7 +108,12 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
         } else {
             print("Not a UITableViewCell segue")
-            // do something
+            //let cell = sender as! UIBarButtonItem
+            
+            let user = User.currentUser
+            
+            let composeViewController = segue.destination as! ComposeViewController
+            composeViewController.user = user
         }
         
         

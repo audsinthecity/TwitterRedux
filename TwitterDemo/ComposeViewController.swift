@@ -14,10 +14,33 @@ class ComposeViewController: UIViewController {
     @IBOutlet weak var usernameLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var profileView: UIImageView!
-    @IBOutlet weak var composeTextField: UITextField!
+    //@IBOutlet weak var composeTextField: UITextField!
+    
+    var user: User!
+    
+    override func viewDidAppear(_ animated: Bool) {
+        //composeTextField.becomeFirstResponder()
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.barTintColor = UIColor.init(red: 0.04, green: 0.6, blue: 0.98, alpha: 0.9)
+        navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
+        
+        usernameLabel.text = user.screenname as String?
+        nameLabel.text = user.name as String?
+        profileView.setImageWith(user.profileUrl as! URL)
+        
+        /*
+        let fixedWidth = composeTextField.frame.size.width
+        composeTextField.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        let newSize = composeTextField.sizeThatFits(CGSize(width: fixedWidth, height: CGFloat.greatestFiniteMagnitude))
+        var newFrame = composeTextField.frame
+        newFrame.size = CGSize(width: max(newSize.width, fixedWidth), height: newSize.height)
+        composeTextField.frame = newFrame
+         */
+
 
         // Do any additional setup after loading the view.
     }
