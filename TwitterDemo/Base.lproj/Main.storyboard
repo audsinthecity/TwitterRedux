@@ -217,7 +217,7 @@
                         <barButtonItem key="rightBarButtonItem" title="New" id="aOA-7y-3df">
                             <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <connections>
-                                <segue destination="k5h-Pc-Q97" kind="show" id="KEz-NQ-lKE"/>
+                                <segue destination="k5h-Pc-Q97" kind="show" id="QMt-ow-qyq"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -293,11 +293,12 @@
                         <outlet property="nameLabel" destination="IVV-31-uTn" id="s2R-eU-dGO"/>
                         <outlet property="profileView" destination="30i-Yz-Qk5" id="7MM-mU-4f9"/>
                         <outlet property="usernameLabel" destination="eAs-wb-Tly" id="vmu-Gu-TfT"/>
+                        <segue destination="nmj-CO-LDk" kind="show" identifier="backHome" id="sgG-XJ-gzh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m4p-O2-8bx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2636" y="-161.46926536731635"/>
+            <point key="canvasLocation" x="2636" y="-163"/>
         </scene>
         <!--Tweet-->
         <scene sceneID="3Nc-CC-JoA">
@@ -469,4 +470,7 @@
         <image name="twitter-lightgrey" width="256" height="256"/>
         <image name="twitter_reply" width="65" height="72"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="sgG-XJ-gzh"/>
+    </inferredMetricsTieBreakers>
 </document>

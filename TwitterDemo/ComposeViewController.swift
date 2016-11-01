@@ -56,47 +56,31 @@ class ComposeViewController: UIViewController {
     
     @IBAction func onTweet(_ sender: AnyObject) {
         
-        /*
-        var tweet = Tweet["text": composeTextView.text]
-        //var tweet = Tweet(dictionary: NSDictionary())
-        var dict = NSDictionary()
-        
-        tweet.init(dict) {
-            ["text" : composeTextView.text] as! NSDictionary
-        }
- 
-        */
-        
-        /*
-        //init(dictionary: Dictionary) {
-        //var tweetDictionary: Dictionary = {
-        tweet.username = user.name as String?
-        tweet.userhandle = user.screenname as String?
-        tweet.text = composeTextView.text
-        tweet.timestamp = Date()
-        tweet.favoritesCount = 0
-        tweet.retweetCount = 0
-        tweet.urlString = String(describing: user.profileUrl)
-        tweet.user = NSDictionary()
-        //}
-        
-        
-        TwitterClient.sharedInstance?.postTweet(success: { (tweet) -> () in
-            print("Successfully posted new Tweet")
-            }, failure: { (error: Error) -> () in
-                print(error.localizedDescription)
-        })
- 
-         */
-        
-        
         TwitterClient.sharedInstance?.createTweet(status: composeTextView.text, reply: nil, success: { (tweet) in
             print("Successfully posted new Tweet")
-            self.dismiss(animated: true, completion: nil)
+            //self.dismiss(animated: true, completion: nil)
+            let alertController = UIAlertController(title: "Success!", message: "Tweet posted", preferredStyle: .alert)
+            
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action:UIAlertAction!) in
+                print("you have pressed the Cancel button");
+            }
+            alertController.addAction(cancelAction)
+            
+            let OKAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction!) in
+                print("you have pressed OK button");
+            }
+            alertController.addAction(OKAction)
+            
+            // The alertController ruins my segue
+            //self.present(alertController, animated: true, completion:nil)
+            
             }, failure: {
                 print("Error on new Tweet post")
         })
         
+        
+        //presentViewController(TweetsViewController, animated: true, completion: nil)
+        performSegue(withIdentifier: "backHome", sender: nil)
         
 
     }
