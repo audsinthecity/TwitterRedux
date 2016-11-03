@@ -48,7 +48,7 @@
                         </constraints>
                     </view>
                     <connections>
-                        <segue destination="iVy-qa-I5P" kind="presentation" identifier="loginSegue" id="IcV-Kl-rtI"/>
+                        <segue destination="4Xt-Hj-Q9l" kind="presentation" identifier="loginSegue" id="xw6-Ti-14c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -90,6 +90,7 @@
                             <constraint firstItem="P6a-eY-vwC" firstAttribute="top" secondItem="KLC-ol-h4o" secondAttribute="bottom" id="z7a-Fo-7VM"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="EIB-8P-Cq0"/>
                     <connections>
                         <outlet property="contentView" destination="KLC-ol-h4o" id="wSI-6h-asp"/>
                         <outlet property="leftMarginConstraint" destination="wJe-QI-fKv" id="uMs-J7-w2u"/>
@@ -576,7 +577,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="nmj-CO-LDk" kind="relationship" relationship="rootViewController" id="wLj-wv-9Xe"/>
+                        <segue destination="nmj-CO-LDk" kind="relationship" relationship="rootViewController" id="OOR-Lx-ANF"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Jh8-Ha-dlz" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -666,6 +667,6 @@
         <image name="twitter_reply" width="65" height="72"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="wLj-wv-9Xe"/>
+        <segue reference="OOR-Lx-ANF"/>
     </inferredMetricsTieBreakers>
 </document>
