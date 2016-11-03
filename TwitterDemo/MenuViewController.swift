@@ -61,7 +61,7 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        //hamburgerViewController.contentViewController = viewControllers[indexPath.row]
+        hamburgerViewController.contentViewController = viewControllers[indexPath.row]
     }
 
     /*
