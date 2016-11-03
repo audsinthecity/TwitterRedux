@@ -108,7 +108,7 @@
         <!--Menu View Controller-->
         <scene sceneID="813-tW-725">
             <objects>
-                <viewController id="sVh-R5-K7y" customClass="MenuViewController" customModule="TwitterDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="MenuViewController" id="sVh-R5-K7y" customClass="MenuViewController" customModule="TwitterDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="bnz-OK-4WP"/>
                         <viewControllerLayoutGuide type="bottom" id="MQH-jQ-6pO"/>
