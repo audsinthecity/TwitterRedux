@@ -762,6 +762,7 @@
                                             <outlet property="retweetLabel" destination="NdU-xH-7Hk" id="Qh2-Fq-F7Z"/>
                                             <outlet property="timeLabel" destination="WZ0-AQ-7Xp" id="32Y-Kh-LdN"/>
                                             <outlet property="userLabel" destination="L4l-C9-bbU" id="tkR-TX-drO"/>
+                                            <segue destination="Qnf-Bb-flG" kind="show" id="Gyl-Qh-2OU"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -784,6 +785,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="New" id="eVc-84-As5">
                             <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="k5h-Pc-Q97" kind="show" id="bnp-he-ELB"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -821,6 +825,8 @@
         <image name="twitter_reply" width="65" height="72"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="bnp-he-ELB"/>
+        <segue reference="Gyl-Qh-2OU"/>
         <segue reference="OOR-Lx-ANF"/>
     </inferredMetricsTieBreakers>
 </document>
