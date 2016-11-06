@@ -53,6 +53,10 @@ class MenuViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MenuCell", for: indexPath) as! MenuCell
         
+        let backgroundView = UIView()
+        backgroundView.backgroundColor = UIColor.init(red: 0.04, green: 0.6, blue: 0.98, alpha: 0.1)
+        cell.selectedBackgroundView = backgroundView
+        
         let titles = ["Home", "Profile", "Mentions"]
         cell.menuTitleLabel.text = titles[indexPath.row]
         return cell
