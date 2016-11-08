@@ -251,10 +251,14 @@
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aKe-Md-8wQ">
                                                     <frame key="frameInset" minX="16" minY="59" width="75" height="75"/>
+                                                    <gestureRecognizers/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="75" id="OKs-Mg-UMw"/>
                                                         <constraint firstAttribute="width" constant="75" id="bD4-TQ-d4q"/>
                                                     </constraints>
+                                                    <connections>
+                                                        <outletCollection property="gestureRecognizers" destination="dIa-uV-i4g" appends="YES" id="T2E-lg-GqI"/>
+                                                    </connections>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
@@ -330,6 +334,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IjY-BM-PRF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="dIa-uV-i4g">
+                    <connections>
+                        <segue destination="YUR-OC-HhL" kind="show" identifier="onHomeToProfileSegue" id="49M-Fo-X9k"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1712.8" y="122.78860569715144"/>
         </scene>
@@ -792,7 +801,7 @@
         <!--Profile-->
         <scene sceneID="U6L-W5-rS6">
             <objects>
-                <viewController id="YUR-OC-HhL" customClass="ProfileViewController" customModule="TwitterDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="profileViewController" id="YUR-OC-HhL" customClass="ProfileViewController" customModule="TwitterDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="snf-Mx-Rnd"/>
                         <viewControllerLayoutGuide type="bottom" id="dR2-gK-f0A"/>
@@ -938,8 +947,8 @@
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="9NK-3V-ZFj"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Username" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QRe-c8-TvB">
@@ -947,7 +956,7 @@
                                             <constraint firstAttribute="height" constant="20" id="IXL-mm-24w"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T0g-rh-S2e">
@@ -972,7 +981,7 @@
                                     <constraint firstItem="QRe-c8-TvB" firstAttribute="centerX" secondItem="L7W-2e-vZh" secondAttribute="centerX" id="yjl-bU-wKd"/>
                                 </constraints>
                             </view>
-                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1f-BA-nSa">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1f-BA-nSa">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="###" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5k-h4-vqv">
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -1005,7 +1014,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" red="0.66483027039999998" green="0.81733092389999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="zu1-X3-gJ9" firstAttribute="centerX" secondItem="o1f-BA-nSa" secondAttribute="centerX" id="0Nd-ef-y3R"/>
                                     <constraint firstItem="zu1-X3-gJ9" firstAttribute="leading" secondItem="HLg-ym-L1y" secondAttribute="leading" id="0jY-DQ-IA8"/>
@@ -1097,6 +1106,6 @@
         <segue reference="bnp-he-ELB"/>
         <segue reference="Gyl-Qh-2OU"/>
         <segue reference="OOR-Lx-ANF"/>
-        <segue reference="l7f-JD-Sxd"/>
+        <segue reference="49M-Fo-X9k"/>
     </inferredMetricsTieBreakers>
 </document>

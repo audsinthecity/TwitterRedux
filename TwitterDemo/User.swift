@@ -27,12 +27,12 @@ class User: NSObject {
         name = dictionary["name"] as? NSString
         screenname = dictionary["screen_name"] as? NSString
         
-        let profileUrlString = dictionary["profile_image_url_https"] as? String
+        let profileUrlString = (dictionary["profile_image_url_https"] as? String)?.replacingOccurrences(of: "_normal", with: "_bigger")
         if let profileUrlString = profileUrlString {
             profileUrl = URL(string: profileUrlString) as NSURL?
         }
         
-        let profileBackgroundString = dictionary["profile_background_image_url_https"] as? String
+        let profileBackgroundString = dictionary["profile_banner_url"] as? String
         if let profileBackgroundString = profileBackgroundString {
             profileBackgroundUrl = URL(string: profileBackgroundString) as NSURL?
         }

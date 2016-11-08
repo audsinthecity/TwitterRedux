@@ -1,3 +1,4 @@
+
 //
 //  TweetCell.swift
 //  TwitterDemo
@@ -7,6 +8,10 @@
 //
 
 import UIKit
+
+protocol TweetCellDelegate: class {
+    func tweetCellDidTriggerProfileView(user: User)
+}
 
 class TweetCell: UITableViewCell {
     
@@ -19,6 +24,8 @@ class TweetCell: UITableViewCell {
     @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var favoriteCountLabel: UILabel!
     @IBOutlet weak var retweetCountLabel: UILabel!
+    
+    weak var delegate: TweetCellDelegate?
     
     var tweet: Tweet! {
         didSet {
@@ -33,9 +40,15 @@ class TweetCell: UITableViewCell {
         }
     }
     
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        profileView.isUserInteractionEnabled = true
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTap))
+        profileView.addGestureRecognizer(gestureRecognizer)
+
         // Initialization code
     }
 
@@ -44,5 +57,14 @@ class TweetCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-
+    
+    func onTap() {
+        delegate?.tweetCellDidTriggerProfileView(user: tweet.tweetUser)
+        
+    }
+    
+    
 }
+
+
+

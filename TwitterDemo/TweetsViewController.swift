@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, TweetCellDelegate {
     
     
     @IBOutlet weak var tableView: UITableView!
@@ -32,6 +32,11 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         navigationController?.navigationBar.barTintColor = UIColor.init(red: 0.04, green: 0.6, blue: 0.98, alpha: 0.9)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
+        /*
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTap))
+        self.view.addGestureRecognizer(gestureRecognizer)
+         */       
+ 
         TwitterClient.sharedInstance?.homeTimeline(success: { (tweets: [Tweet]) -> () in
             self.tweets = tweets
             for tweet in tweets {
@@ -67,6 +72,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "TweetCell", for: indexPath) as! TweetCell
 
         cell.tweet = tweets[indexPath.row]
+        cell.delegate = self
         
         return cell
     }
@@ -88,6 +94,17 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     }
 
 
+    /*func onTap(tapGestureRecognizer: UITapGestureRecognizer) {
+        print("got the tap gesture from home!")
+        performSegue(withIdentifier: "onHomeToProfileSegue", sender: tapGestureRecognizer)
+    } */
+    
+    func tweetCellDidTriggerProfileView(user: User) {
+        let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+        let profileViewController = storyboard.instantiateViewController(withIdentifier: "profileViewController") as! ProfileViewController
+        profileViewController.profileUser = user
+        self.navigationController?.pushViewController(profileViewController, animated: true)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
@@ -108,7 +125,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             // Get the new view controller using segue.destinationViewController.
             // Pass the selected object to the new view controller.
 
-        } else {
+        } else if let cell = sender as? UIBarButtonItem {
             print("Not a UITableViewCell segue")
             //let cell = sender as! UIBarButtonItem
             
@@ -116,10 +133,14 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
             
             let composeViewController = segue.destination as! ComposeViewController
             composeViewController.user = user
+        } else {
+            print("Segue to profile page")
+            
+            
         }
         
         
-            }
+    }
 
 
 }

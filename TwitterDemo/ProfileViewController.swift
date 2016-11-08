@@ -34,11 +34,11 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         print(profileUser.numberTweets)
         nameLabel.text = profileUser.name as String?
         userNameLabel.text = profileUser.screenname as String?
-        //profileView.setImageWith(profileUser.profileUrl as! URL)
-        //numberTweetsLabel.text = String(describing: profileUser.numberTweets!)
-        //numberFollowersLabel.text = String(describing: profileUser.numberFollowers!)
-        //numberFollowingLabel.text = String(describing: profileUser.numberFollowing!)
-        //profileBackgroundView.setImageWith(profileUser.profileBackgroundUrl as! URL)
+        profileView.setImageWith(profileUser.profileUrl as! URL)
+        numberTweetsLabel.text = String(describing: profileUser.numberTweets!)
+        numberFollowersLabel.text = String(describing: profileUser.numberFollowers!)
+        numberFollowingLabel.text = String(describing: profileUser.numberFollowing!)
+        if profileUser.profileBackgroundUrl != nil {profileBackgroundView.setImageWith(profileUser.profileBackgroundUrl as! URL)}
 
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(refreshControl:)), for: UIControlEvents.valueChanged)
@@ -52,7 +52,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         navigationController?.navigationBar.barTintColor = UIColor.init(red: 0.04, green: 0.6, blue: 0.98, alpha: 0.9)
         navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.white]
         
-        TwitterClient.sharedInstance?.userTimeline(success: { (tweets: [Tweet]) -> () in
+        TwitterClient.sharedInstance?.userTimeline(screenName: profileUser.screenname as! String, success: { (tweets: [Tweet]) -> () in
             self.tweets = tweets
             for tweet in tweets {
                 print(tweet.text)
@@ -86,7 +86,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
     func refreshControlAction(refreshControl: UIRefreshControl) {
         
-        TwitterClient.sharedInstance?.userTimeline(success: { (tweets: [Tweet]) -> () in
+        TwitterClient.sharedInstance?.userTimeline(screenName: profileUser.screenname as! String, success: { (tweets: [Tweet]) -> () in
             self.tweets = tweets
             for tweet in tweets {
                 print(tweet.text)

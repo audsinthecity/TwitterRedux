@@ -25,6 +25,8 @@ class Tweet: NSObject {
     var numberTweets: Int = 0
     var id: Int = 0
     
+    var tweetUser: User
+    
     init(dictionary: NSDictionary) {
         print("Printing user dictionary")
         print(dictionary["user"])
@@ -43,6 +45,7 @@ class Tweet: NSObject {
         followersCount = (user?["followers_count"] as? Int) ?? 0
         numberTweets = (user?["statuses_count"] as? Int) ?? 0
         id = (dictionary["id"] as? Int) ?? 0
+        tweetUser = User.init(dictionary: user!)
         print("urlString \(urlString)")
         
         let timestampString = dictionary["created_at"] as? String
@@ -53,6 +56,7 @@ class Tweet: NSObject {
             timestamp = formatter.date(from: timestampString) as Date?
         }
     }
+    
     
     // Display time lapsed since Tweet creation
     var displayTimeSinceCreated: String {
