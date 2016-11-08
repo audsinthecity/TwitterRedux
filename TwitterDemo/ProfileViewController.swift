@@ -31,9 +31,9 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
         nameLabel.text = User.currentUser?.name as String?
         userNameLabel.text = User.currentUser?.screenname as String?
         profileView.setImageWith(User.currentUser?.profileUrl as! URL)
-        numberTweetsLabel.text = String(describing: User.currentUser!.numberTweets)
-        numberFollowersLabel.text = String(describing: User.currentUser?.numberFollowers)
-        numberFollowingLabel.text = String(describing: User.currentUser?.numberFollowing)
+        numberTweetsLabel.text = String(describing: User.currentUser!.numberTweets!)
+        numberFollowersLabel.text = String(describing: User.currentUser!.numberFollowers!)
+        numberFollowingLabel.text = String(describing: User.currentUser!.numberFollowing!)
 
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(refreshControl:)), for: UIControlEvents.valueChanged)
