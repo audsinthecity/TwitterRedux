@@ -15,10 +15,14 @@ class Tweet: NSObject {
     var retweetCount: Int = 0
     var favoritesCount: Int = 0
     var urlString: String?
+    var backgroundUrlString: String?
     var user: NSDictionary?
     //var user: [String : AnyObject]?
     var username: String?
     var userhandle: String?
+    var friendsCount: Int = 0
+    var followersCount: Int = 0
+    var numberTweets: Int = 0
     var id: Int = 0
     
     init(dictionary: NSDictionary) {
@@ -34,6 +38,10 @@ class Tweet: NSObject {
         username = user?["name"] as? String
         userhandle = user?["screen_name"] as? String
         urlString = user?["profile_image_url_https"] as? String
+        backgroundUrlString = user?["profile_background_image_url_https"] as? String
+        friendsCount = (user?["friends_count"] as? Int) ?? 0
+        followersCount = (user?["followers_count"] as? Int) ?? 0
+        numberTweets = (user?["statuses_count"] as? Int) ?? 0
         id = (dictionary["id"] as? Int) ?? 0
         print("urlString \(urlString)")
         

@@ -438,10 +438,14 @@
                                 </constraints>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="qOQ-XU-67M">
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="75" id="0R1-iV-Ofb"/>
                                     <constraint firstAttribute="width" constant="75" id="rFz-GI-HkJ"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="D6i-ow-rtb" appends="YES" id="4ci-BT-KHY"/>
+                                </connections>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q6T-lT-1z9">
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -566,6 +570,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wSx-53-ATf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="D6i-ow-rtb">
+                    <connections>
+                        <action selector="onProfileTapGesture:" destination="Qnf-Bb-flG" id="Hiq-bX-nMJ"/>
+                        <segue destination="YUR-OC-HhL" kind="show" identifier="profileSegue" id="l7f-JD-Sxd"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2636" y="621"/>
         </scene>
@@ -795,7 +805,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="TweetCell" rowHeight="155" id="aNk-g6-psx" customClass="TweetCell" customModule="TwitterDemo" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="92" width="375" height="155"/>
+                                        <rect key="frame" x="0.0" y="28" width="375" height="155"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aNk-g6-psx" id="46N-5x-Uzn">
                                             <frame key="frameInset" width="375" height="154"/>
@@ -1087,5 +1097,6 @@
         <segue reference="bnp-he-ELB"/>
         <segue reference="Gyl-Qh-2OU"/>
         <segue reference="OOR-Lx-ANF"/>
+        <segue reference="l7f-JD-Sxd"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -39,8 +39,8 @@ class User: NSObject {
         
         tagline = dictionary["description"] as? NSString
         
-        numberFollowing = dictionary["friends_count"] as! Int
-        numberFollowers = dictionary["followers_count"] as! Int
+        numberFollowing = dictionary["friends_count"] as? Int
+        numberFollowers = dictionary["followers_count"] as? Int
         numberTweets = dictionary["statuses_count"] as? Int
     }
     

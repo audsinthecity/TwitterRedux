@@ -25,6 +25,7 @@ class TweetDetailViewController: UIViewController {
     @IBOutlet weak var retweetButton: UIButton!
     
     var tweet: Tweet!
+    var profileUser: User!
     
     
     override func viewDidLoad() {
@@ -49,7 +50,8 @@ class TweetDetailViewController: UIViewController {
         retweetButton.setImage(#imageLiteral(resourceName: "retweet-action"), for:.normal);
         retweetButton.setImage(#imageLiteral(resourceName: "retweet-action-on"), for: .highlighted)
         
-        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTap))
+        self.view.addGestureRecognizer(gestureRecognizer)
         
     }
 
@@ -90,15 +92,85 @@ class TweetDetailViewController: UIViewController {
                 print("Favorite fail")
         })
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    
+    @IBAction func onProfileTapGesture(_ sender: AnyObject) {
+        print("tap gesture working")
     }
-    */
+    
+    /*@IBAction func onProfileTapGesture(_ tapGestureRecognizer: UITapGestureRecognizer) {
+        
+        print("tap gesture working")
+        
+        let imageView = tapGestureRecognizer.view as! UIImageView
+        
+        //let tap = UITapGestureRecognizer(target: self, action: #selector(onTap))
+        //tap.delegate = self
+        imageView.addGestureRecognizer(tap)
+    } */
+    
+    func onTap(tapGestureRecognizer: UITapGestureRecognizer) {
+        print("got the tap gesture!")
+        performSegue(withIdentifier: "profileSegue", sender: tapGestureRecognizer)
+    }
+    
+    
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        if let cell = sender as? UITapGestureRecognizer {
+            let cell = sender as! UITapGestureRecognizer
+            
+            //var dictionary: [Any:Any]
+            
+            //init(dictionary: NSDictionary) {
+            
+            var dictionary = [
+                //self.dictionary = dictionary
+                
+                "name" : tweet.username as? NSString,
+                "screenname" : tweet.userhandle as? NSString,
+                
+                /*
+                let profileUrlString = tweet.urlString as? String
+                if let profileUrlString = profileUrlString {
+                    profileUrl = URL(string: profileUrlString) as NSURL?
+                }
+                
+                let profileBackgroundString = tweet.backgroundUrlString as? String
+                if let profileBackgroundString = profileBackgroundString {
+                    profileBackgroundUrl = URL(string: profileBackgroundString) as NSURL?
+                }
+                 */
+                
+                //tagline = dictionary["description"] as? NSString
+                
+                "numberFollowing" : tweet.friendsCount,
+                "numberFollowers" : tweet.followersCount,
+                "numberTweets" : tweet.numberTweets
+            ] as [String : Any]
+            //}
+            
+            let tweetUser = User.init(dictionary: dictionary as NSDictionary)
+            
+            //let profileUser = tweet.user
+            
+            let profileViewController = segue.destination as! ProfileViewController
+            profileViewController.profileUser = tweetUser
+            
+            // Get the new view controller using segue.destinationViewController.
+            // Pass the selected object to the new view controller.
+            
+        } else {
+            print("Not a UITableViewCell segue")
+            //let cell = sender as! UIBarButtonItem
+            
+            let user = User.currentUser
+            
+            let composeViewController = segue.destination as! ComposeViewController
+            composeViewController.user = user
+        }
+    }
+
 
 }

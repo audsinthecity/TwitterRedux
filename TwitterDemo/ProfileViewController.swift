@@ -30,14 +30,15 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        print(profileUser.name)
+        print(profileUser.numberTweets)
         nameLabel.text = profileUser.name as String?
         userNameLabel.text = profileUser.screenname as String?
-        profileView.setImageWith(profileUser.profileUrl as! URL)
-        numberTweetsLabel.text = String(describing: profileUser.numberTweets!)
-        numberFollowersLabel.text = String(describing: profileUser.numberFollowers!)
-        numberFollowingLabel.text = String(describing: profileUser.numberFollowing!)
-        profileBackgroundView.setImageWith(profileUser.profileBackgroundUrl as! URL)
+        //profileView.setImageWith(profileUser.profileUrl as! URL)
+        //numberTweetsLabel.text = String(describing: profileUser.numberTweets!)
+        //numberFollowersLabel.text = String(describing: profileUser.numberFollowers!)
+        //numberFollowingLabel.text = String(describing: profileUser.numberFollowing!)
+        //profileBackgroundView.setImageWith(profileUser.profileBackgroundUrl as! URL)
 
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(refreshControl:)), for: UIControlEvents.valueChanged)
