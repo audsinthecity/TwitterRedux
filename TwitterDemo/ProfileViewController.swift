@@ -15,6 +15,8 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var userStatsView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    
+    @IBOutlet weak var profileBackgroundView: UIImageView!
     @IBOutlet weak var profileView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -24,16 +26,18 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
     @IBOutlet weak var numberFollowersLabel: UILabel!
     
     var tweets: [Tweet]!
+    var profileUser: User = User.currentUser!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        nameLabel.text = User.currentUser?.name as String?
-        userNameLabel.text = User.currentUser?.screenname as String?
-        profileView.setImageWith(User.currentUser?.profileUrl as! URL)
-        numberTweetsLabel.text = String(describing: User.currentUser!.numberTweets!)
-        numberFollowersLabel.text = String(describing: User.currentUser!.numberFollowers!)
-        numberFollowingLabel.text = String(describing: User.currentUser!.numberFollowing!)
+        nameLabel.text = profileUser.name as String?
+        userNameLabel.text = profileUser.screenname as String?
+        profileView.setImageWith(profileUser.profileUrl as! URL)
+        numberTweetsLabel.text = String(describing: profileUser.numberTweets!)
+        numberFollowersLabel.text = String(describing: profileUser.numberFollowers!)
+        numberFollowingLabel.text = String(describing: profileUser.numberFollowing!)
+        profileBackgroundView.setImageWith(profileUser.profileBackgroundUrl as! URL)
 
         let refreshControl = UIRefreshControl()
         refreshControl.addTarget(self, action: #selector(refreshControlAction(refreshControl:)), for: UIControlEvents.valueChanged)
@@ -81,7 +85,7 @@ class ProfileViewController: UIViewController, UITableViewDataSource, UITableVie
 
     func refreshControlAction(refreshControl: UIRefreshControl) {
         
-        TwitterClient.sharedInstance?.homeTimeline(success: { (tweets: [Tweet]) -> () in
+        TwitterClient.sharedInstance?.userTimeline(success: { (tweets: [Tweet]) -> () in
             self.tweets = tweets
             for tweet in tweets {
                 print(tweet.text)

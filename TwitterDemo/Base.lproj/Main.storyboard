@@ -923,6 +923,7 @@
                             </tableView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="L7W-2e-vZh">
                                 <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="97X-Qc-fxI"/>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ykv-9e-FZu">
                                         <constraints>
                                             <constraint firstAttribute="height" constant="20" id="9NK-3V-ZFj"/>
@@ -953,11 +954,15 @@
                                     <constraint firstItem="QRe-c8-TvB" firstAttribute="top" secondItem="Ykv-9e-FZu" secondAttribute="bottom" constant="8" id="AUa-Ca-mdm"/>
                                     <constraint firstItem="T0g-rh-S2e" firstAttribute="top" secondItem="L7W-2e-vZh" secondAttribute="top" constant="15" id="Bmc-tR-hBq"/>
                                     <constraint firstItem="T0g-rh-S2e" firstAttribute="centerX" secondItem="L7W-2e-vZh" secondAttribute="centerX" id="F9R-hJ-VJV"/>
+                                    <constraint firstAttribute="bottom" secondItem="97X-Qc-fxI" secondAttribute="bottom" id="FwJ-e8-K6S"/>
+                                    <constraint firstItem="97X-Qc-fxI" firstAttribute="leading" secondItem="L7W-2e-vZh" secondAttribute="leading" id="VUM-Tf-E4V"/>
+                                    <constraint firstItem="97X-Qc-fxI" firstAttribute="top" secondItem="L7W-2e-vZh" secondAttribute="top" id="b0X-3Q-eWf"/>
                                     <constraint firstItem="Ykv-9e-FZu" firstAttribute="centerX" secondItem="L7W-2e-vZh" secondAttribute="centerX" id="bqC-QE-mbo"/>
+                                    <constraint firstAttribute="trailing" secondItem="97X-Qc-fxI" secondAttribute="trailing" id="vjU-3C-RcM"/>
                                     <constraint firstItem="QRe-c8-TvB" firstAttribute="centerX" secondItem="L7W-2e-vZh" secondAttribute="centerX" id="yjl-bU-wKd"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1f-BA-nSa">
+                            <view alpha="0.5" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o1f-BA-nSa">
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="###" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d5k-h4-vqv">
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
@@ -990,7 +995,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.66483027039999998" green="0.81733092389999995" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="zu1-X3-gJ9" firstAttribute="centerX" secondItem="o1f-BA-nSa" secondAttribute="centerX" id="0Nd-ef-y3R"/>
                                     <constraint firstItem="zu1-X3-gJ9" firstAttribute="leading" secondItem="HLg-ym-L1y" secondAttribute="leading" id="0jY-DQ-IA8"/>
@@ -1040,6 +1045,7 @@
                         <outlet property="numberFollowersLabel" destination="5qe-lp-DKd" id="cVy-eJ-EqQ"/>
                         <outlet property="numberFollowingLabel" destination="zu1-X3-gJ9" id="ai6-e0-n4D"/>
                         <outlet property="numberTweetsLabel" destination="d5k-h4-vqv" id="96t-jw-JI8"/>
+                        <outlet property="profileBackgroundView" destination="97X-Qc-fxI" id="cmg-1d-Jsm"/>
                         <outlet property="profileView" destination="T0g-rh-S2e" id="ROK-Zb-fIs"/>
                         <outlet property="tableView" destination="muP-hz-tOz" id="C9k-tG-c36"/>
                         <outlet property="userHeaderView" destination="L7W-2e-vZh" id="sZ0-I7-CWJ"/>
