@@ -959,7 +959,7 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T0g-rh-S2e">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="T0g-rh-S2e">
                                         <constraints>
                                             <constraint firstAttribute="width" constant="80" id="VWf-37-e45"/>
                                             <constraint firstAttribute="height" constant="80" id="ww6-K4-Kdx"/>
